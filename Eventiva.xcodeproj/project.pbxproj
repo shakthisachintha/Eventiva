@@ -11,6 +11,9 @@
 		350FFB7C2A8A94AE009A5FDD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FFB7B2A8A94AE009A5FDD /* ContentView.swift */; };
 		350FFB7E2A8A94B0009A5FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350FFB7D2A8A94B0009A5FDD /* Assets.xcassets */; };
 		350FFB812A8A94B0009A5FDD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350FFB802A8A94B0009A5FDD /* Preview Assets.xcassets */; };
+		350FFB892A8A9A36009A5FDD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FFB882A8A9A36009A5FDD /* Event.swift */; };
+		350FFB8B2A8A9D24009A5FDD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FFB8A2A8A9D24009A5FDD /* DataModel.swift */; };
+		350FFB8E2A8A9FB7009A5FDD /* event_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 350FFB8D2A8A9FB7009A5FDD /* event_data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		350FFB7B2A8A94AE009A5FDD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		350FFB7D2A8A94B0009A5FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350FFB802A8A94B0009A5FDD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		350FFB882A8A9A36009A5FDD /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		350FFB8A2A8A9D24009A5FDD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		350FFB8D2A8A9FB7009A5FDD /* event_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = event_data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,8 @@
 		350FFB782A8A94AE009A5FDD /* Eventiva */ = {
 			isa = PBXGroup;
 			children = (
+				350FFB8C2A8A9F72009A5FDD /* Resources */,
+				350FFB872A8A9A18009A5FDD /* Model */,
 				350FFB792A8A94AE009A5FDD /* EventivaApp.swift */,
 				350FFB7B2A8A94AE009A5FDD /* ContentView.swift */,
 				350FFB7D2A8A94B0009A5FDD /* Assets.xcassets */,
@@ -65,6 +73,23 @@
 				350FFB802A8A94B0009A5FDD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		350FFB872A8A9A18009A5FDD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				350FFB882A8A9A36009A5FDD /* Event.swift */,
+				350FFB8A2A8A9D24009A5FDD /* DataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		350FFB8C2A8A9F72009A5FDD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				350FFB8D2A8A9FB7009A5FDD /* event_data.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				350FFB812A8A94B0009A5FDD /* Preview Assets.xcassets in Resources */,
+				350FFB8E2A8A9FB7009A5FDD /* event_data.json in Resources */,
 				350FFB7E2A8A94B0009A5FDD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				350FFB7C2A8A94AE009A5FDD /* ContentView.swift in Sources */,
+				350FFB8B2A8A9D24009A5FDD /* DataModel.swift in Sources */,
+				350FFB892A8A9A36009A5FDD /* Event.swift in Sources */,
 				350FFB7A2A8A94AE009A5FDD /* EventivaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

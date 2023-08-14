@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1,
+        "name": "Tech Innovators Summit",
+        "description": "Join us for a cutting-edge technology conference showcasing the latest innovations and trends.",
+        "category": "Conference",
+        "dateTime": "2023-08-18T10:00:00Z",
+        "notifications": [30, 60, 120],
+        "isPinned": true
+    },
+    {
+        "id": 2,
+        "name": "Artisan Workshop Series",
+        "description": "Explore your creativity in our hands-on artisan workshops covering various crafting techniques.",
+        "category": "Workshop",
+        "dateTime": "2023-08-22T14:30:00Z",
+        "notifications": [15, 30, 45],
+        "isPinned": false
+    },
+    {
+        "id": 3,
+        "name": "Leadership Seminar",
+        "description": "Enhance your leadership skills with insights from industry experts and motivational speakers.",
+        "category": "Seminar",
+        "dateTime": "2023-08-28T11:00:00Z",
+        "notifications": [10, 20, 30],
+        "isPinned": true
+    },
+    {
+        "id": 4,
+        "name": "Health and Wellness Expo",
+        "description": "Discover holistic approaches to health at our wellness expo featuring fitness demos and wellness product showcases.",
+        "category": "Expo",
+        "dateTime": "2023-08-29T09:00:00Z",
+        "notifications": [15, 30, 60],
+        "isPinned": false
+    },
+    {
+        "id": 5,
+        "name": "Music Festival: HarmonyFest",
+        "description": "Immerse yourself in the world of music with performances from diverse genres and talented artists.",
+        "category": "Festival",
+        "dateTime": "2023-09-08T18:00:00Z",
+        "notifications": [20, 45, 90],
+        "isPinned": false
+    },
+    {
+        "id": 6,
+        "name": "Entrepreneurship Bootcamp",
+        "description": "Unleash your entrepreneurial potential through hands-on workshops and mentorship sessions.",
+        "category": "Workshop",
+        "dateTime": "2023-09-12T10:00:00Z",
+        "notifications": [10, 30, 60],
+        "isPinned": true
+    },
+    {
+        "id": 7,
+        "name": "Environmental Conservation Conference",
+        "description": "Join us in exploring ways to preserve and protect the environment for future generations.",
+        "category": "Conference",
+        "dateTime": "2023-09-18T09:30:00Z",
+        "notifications": [15, 30, 45],
+        "isPinned": false
+    },
+    {
+        "id": 8,
+        "name": "Culinary Masterclass: Global Flavors",
+        "description": "Embark on a culinary journey and learn to create exquisite dishes inspired by cuisines from around the world.",
+        "category": "Workshop",
+        "dateTime": "2023-09-25T15:00:00Z",
+        "notifications": [10, 20, 30],
+        "isPinned": false
+    },
+    {
+        "id": 9,
+        "name": "Tech Expo: FutureTech",
+        "description": "Experience the future of technology with hands-on demos and showcases of groundbreaking innovations.",
+        "category": "Expo",
+        "dateTime": "2023-09-28T10:00:00Z",
+        "notifications": [15, 30, 60],
+        "isPinned": true
+    },
+    {
+        "id": 10,
+        "name": "Mindfulness Retreat",
+        "description": "Escape the hustle and bustle and join us for a serene mindfulness retreat in the heart of nature.",
+        "category": "Retreat",
+        "dateTime": "2023-09-30T08:00:00Z",
+        "notifications": [20, 45, 90],
+        "isPinned": false
+    },
+    {
+        "id": 11,
+        "name": "Innovation in Education Summit",
+        "description": "Explore innovative approaches to education and pedagogy in this enlightening summit.",
+        "category": "Conference",
+        "dateTime": "2023-08-15T14:00:00Z",
+        "notifications": [15, 30, 60],
+        "isPinned": false
+    },
+    {
+        "id": 12,
+        "name": "Art Gallery Opening: Visionary Vistas",
+        "description": "Immerse yourself in a world of art with the grand opening of our Visionary Vistas art gallery.",
+        "category": "Exhibition",
+        "dateTime": "2023-08-20T17:30:00Z",
+        "notifications": [10, 20, 45],
+        "isPinned": true
+    },
+    {
+        "id": 13,
+        "name": "Wellness and Yoga Retreat",
+        "description": "Rejuvenate your body and mind with invigorating yoga sessions and wellness workshops.",
+        "category": "Retreat",
+        "dateTime": "2023-08-25T09:00:00Z",
+        "notifications": [15, 30, 60],
+        "isPinned": false
+    },
+    {
+        "id": 14,
+        "name": "Culinary Exploration: Spice Trail",
+        "description": "Embark on a gastronomic adventure exploring the rich and diverse world of spices in cooking.",
+        "category": "Workshop",
+        "dateTime": "2023-09-10T13:00:00Z",
+        "notifications": [10, 20, 30],
+        "isPinned": false
+    },
+    {
+        "id": 15,
+        "name": "Technology and Society Panel",
+        "description": "Engage in a thought-provoking discussion about the impact of technology on society and culture.",
+        "category": "Panel Discussion",
+        "dateTime": "2023-09-20T16:00:00Z",
+        "notifications": [15, 30, 45],
+        "isPinned": false
+    }
+]
+
