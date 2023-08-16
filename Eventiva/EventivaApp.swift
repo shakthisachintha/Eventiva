@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct EventivaApp: App {
+    
+    @StateObject private var modelData = DataModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(modelData)
         }
     }
 }

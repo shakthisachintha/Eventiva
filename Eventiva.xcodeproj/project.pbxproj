@@ -14,6 +14,11 @@
 		350FFB892A8A9A36009A5FDD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FFB882A8A9A36009A5FDD /* Event.swift */; };
 		350FFB8B2A8A9D24009A5FDD /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350FFB8A2A8A9D24009A5FDD /* DataModel.swift */; };
 		350FFB8E2A8A9FB7009A5FDD /* event_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 350FFB8D2A8A9FB7009A5FDD /* event_data.json */; };
+		359C60AE2A8BBEC300F930E0 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60AD2A8BBEC300F930E0 /* EventCard.swift */; };
+		359C60B02A8BC29700F930E0 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60AF2A8BC29700F930E0 /* EventList.swift */; };
+		359C60B22A8BC43A00F930E0 /* EditEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B12A8BC43A00F930E0 /* EditEvent.swift */; };
+		359C60B42A8BD16F00F930E0 /* TimerPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B32A8BD16F00F930E0 /* TimerPanel.swift */; };
+		359C60B62A8BEE6C00F930E0 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B52A8BEE6C00F930E0 /* Gradients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		350FFB882A8A9A36009A5FDD /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		350FFB8A2A8A9D24009A5FDD /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		350FFB8D2A8A9FB7009A5FDD /* event_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = event_data.json; sourceTree = "<group>"; };
+		359C60AD2A8BBEC300F930E0 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
+		359C60AF2A8BC29700F930E0 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		359C60B12A8BC43A00F930E0 /* EditEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEvent.swift; sourceTree = "<group>"; };
+		359C60B32A8BD16F00F930E0 /* TimerPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPanel.swift; sourceTree = "<group>"; };
+		359C60B52A8BEE6C00F930E0 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,7 @@
 		350FFB782A8A94AE009A5FDD /* Eventiva */ = {
 			isa = PBXGroup;
 			children = (
+				359C60AC2A8BBE7D00F930E0 /* Views */,
 				350FFB8C2A8A9F72009A5FDD /* Resources */,
 				350FFB872A8A9A18009A5FDD /* Model */,
 				350FFB792A8A94AE009A5FDD /* EventivaApp.swift */,
@@ -90,6 +101,18 @@
 				350FFB8D2A8A9FB7009A5FDD /* event_data.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		359C60AC2A8BBE7D00F930E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				359C60AF2A8BC29700F930E0 /* EventList.swift */,
+				359C60AD2A8BBEC300F930E0 /* EventCard.swift */,
+				359C60B32A8BD16F00F930E0 /* TimerPanel.swift */,
+				359C60B12A8BC43A00F930E0 /* EditEvent.swift */,
+				359C60B52A8BEE6C00F930E0 /* Gradients.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,10 +186,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				359C60B02A8BC29700F930E0 /* EventList.swift in Sources */,
+				359C60B22A8BC43A00F930E0 /* EditEvent.swift in Sources */,
+				359C60B62A8BEE6C00F930E0 /* Gradients.swift in Sources */,
 				350FFB7C2A8A94AE009A5FDD /* ContentView.swift in Sources */,
 				350FFB8B2A8A9D24009A5FDD /* DataModel.swift in Sources */,
+				359C60B42A8BD16F00F930E0 /* TimerPanel.swift in Sources */,
 				350FFB892A8A9A36009A5FDD /* Event.swift in Sources */,
 				350FFB7A2A8A94AE009A5FDD /* EventivaApp.swift in Sources */,
+				359C60AE2A8BBEC300F930E0 /* EventCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
