@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var dataModel: DataModel
+    @State private var showAddEventSheet = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack{
+            ZStack(alignment: .bottomTrailing) {
+                EventList()
+                
+                NavigationLink {
+                    AddEvent()
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.system(size: 56))
+                        .foregroundColor(.green)
+                        .padding()
+                }
+            }
         }
-        .padding()
+        
     }
 }
 

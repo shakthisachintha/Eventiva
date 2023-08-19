@@ -4,7 +4,7 @@
         "name": "Tech Innovators Summit",
         "description": "Join us for a cutting-edge technology conference showcasing the latest innovations and trends.",
         "category": "Conference",
-        "dateTime": "2023-08-18T10:00:00Z",
+        "dateTime": "2023-08-16T18:37:48Z",
         "notifications": [30, 60, 120],
         "isPinned": true
     },
@@ -13,7 +13,7 @@
         "name": "Artisan Workshop Series",
         "description": "Explore your creativity in our hands-on artisan workshops covering various crafting techniques.",
         "category": "Workshop",
-        "dateTime": "2023-08-22T14:30:00Z",
+        "dateTime": "2023-08-16T03:30:00Z",
         "notifications": [15, 30, 45],
         "isPinned": false
     },

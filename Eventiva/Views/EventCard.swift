@@ -14,34 +14,35 @@ struct EventCard: View {
         VStack {
             VStack{
                 HStack{
-                    Text(event.name).font(.title2)
+                    Text(event.name).font(.title2).foregroundColor(.white).fontWeight(.medium)
                     Spacer()
-                    Button {
-                        print("Edit button was tapped")
-                    } label: {
+                    ShareLink(item:"", subject: Text(event.name), message: Text(event.name+"\n"+event.description+"\n "+event.formattedDateTime)) {
                         Image(systemName: "arrowshape.turn.up.right.circle.fill")
+                            .font(.system(size: 28))
+                            .foregroundColor(.gray)
                     }
                 }
                 HStack{
-                    Text(event.description).font(.body).lineLimit(1).truncationMode(.tail)
+                    Text(event.description).font(.body).lineLimit(1).truncationMode(.tail).foregroundColor(.white)
                     Spacer()
                 }
-                TimerPanel(dateTime: event.dateTime)
+                TimerPanel(event: event)
                 HStack{
-                    Text(event.formattedDateTime).font(.callout)
+                    Text(event.formattedDateTime).font(.callout).foregroundColor(.white)
                     Spacer()
                 }
             }.padding()
         }.background(
-            getGradient(event.id)
+            getGradient(1)
         ).cornerRadius(5)
     }
+    
 }
 
 struct EventCard_Previews: PreviewProvider {
-    static var events = DataModel().events
+    static var events = DataModel().listFutureEvents()
     
     static var previews: some View {
-        EventCard(event: events[2])
+        EventCard(event: events[3])
     }
 }

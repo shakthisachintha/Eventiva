@@ -19,6 +19,10 @@
 		359C60B22A8BC43A00F930E0 /* EditEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B12A8BC43A00F930E0 /* EditEvent.swift */; };
 		359C60B42A8BD16F00F930E0 /* TimerPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B32A8BD16F00F930E0 /* TimerPanel.swift */; };
 		359C60B62A8BEE6C00F930E0 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B52A8BEE6C00F930E0 /* Gradients.swift */; };
+		359C60B92A8C744E00F930E0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B82A8C744E00F930E0 /* Helpers.swift */; };
+		35D929012A90F53C009CEACC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D929002A90F53C009CEACC /* SplashScreen.swift */; };
+		35D929032A90F7FA009CEACC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D929022A90F7FA009CEACC /* Settings.swift */; };
+		35F1FA6F2A8E5749006A26DA /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1FA6E2A8E5749006A26DA /* AddEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		359C60B12A8BC43A00F930E0 /* EditEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEvent.swift; sourceTree = "<group>"; };
 		359C60B32A8BD16F00F930E0 /* TimerPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPanel.swift; sourceTree = "<group>"; };
 		359C60B52A8BEE6C00F930E0 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		359C60B82A8C744E00F930E0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		35D929002A90F53C009CEACC /* SplashScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		35D929022A90F7FA009CEACC /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		35F1FA6E2A8E5749006A26DA /* AddEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,7 @@
 		350FFB782A8A94AE009A5FDD /* Eventiva */ = {
 			isa = PBXGroup;
 			children = (
+				359C60B72A8C743200F930E0 /* Utils */,
 				359C60AC2A8BBE7D00F930E0 /* Views */,
 				350FFB8C2A8A9F72009A5FDD /* Resources */,
 				350FFB872A8A9A18009A5FDD /* Model */,
@@ -109,10 +118,21 @@
 				359C60AF2A8BC29700F930E0 /* EventList.swift */,
 				359C60AD2A8BBEC300F930E0 /* EventCard.swift */,
 				359C60B32A8BD16F00F930E0 /* TimerPanel.swift */,
+				35D929022A90F7FA009CEACC /* Settings.swift */,
+				35D929002A90F53C009CEACC /* SplashScreen.swift */,
+				35F1FA6E2A8E5749006A26DA /* AddEvent.swift */,
 				359C60B12A8BC43A00F930E0 /* EditEvent.swift */,
-				359C60B52A8BEE6C00F930E0 /* Gradients.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		359C60B72A8C743200F930E0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				359C60B52A8BEE6C00F930E0 /* Gradients.swift */,
+				359C60B82A8C744E00F930E0 /* Helpers.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,13 +208,17 @@
 			files = (
 				359C60B02A8BC29700F930E0 /* EventList.swift in Sources */,
 				359C60B22A8BC43A00F930E0 /* EditEvent.swift in Sources */,
+				35D929032A90F7FA009CEACC /* Settings.swift in Sources */,
 				359C60B62A8BEE6C00F930E0 /* Gradients.swift in Sources */,
+				35F1FA6F2A8E5749006A26DA /* AddEvent.swift in Sources */,
+				359C60B92A8C744E00F930E0 /* Helpers.swift in Sources */,
 				350FFB7C2A8A94AE009A5FDD /* ContentView.swift in Sources */,
 				350FFB8B2A8A9D24009A5FDD /* DataModel.swift in Sources */,
 				359C60B42A8BD16F00F930E0 /* TimerPanel.swift in Sources */,
 				350FFB892A8A9A36009A5FDD /* Event.swift in Sources */,
 				350FFB7A2A8A94AE009A5FDD /* EventivaApp.swift in Sources */,
 				359C60AE2A8BBEC300F930E0 /* EventCard.swift in Sources */,
+				35D929012A90F53C009CEACC /* SplashScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
