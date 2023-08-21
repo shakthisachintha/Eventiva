@@ -20,6 +20,8 @@
 		359C60B42A8BD16F00F930E0 /* TimerPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B32A8BD16F00F930E0 /* TimerPanel.swift */; };
 		359C60B62A8BEE6C00F930E0 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B52A8BEE6C00F930E0 /* Gradients.swift */; };
 		359C60B92A8C744E00F930E0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C60B82A8C744E00F930E0 /* Helpers.swift */; };
+		35C81B132A93BB5200FC9EA9 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C81B122A93BB5200FC9EA9 /* AppInfo.swift */; };
+		35C81B152A93D23300FC9EA9 /* ActiveNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C81B142A93D23300FC9EA9 /* ActiveNotifications.swift */; };
 		35D929012A90F53C009CEACC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D929002A90F53C009CEACC /* SplashScreen.swift */; };
 		35D929032A90F7FA009CEACC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D929022A90F7FA009CEACC /* Settings.swift */; };
 		35F1FA6F2A8E5749006A26DA /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F1FA6E2A8E5749006A26DA /* AddEvent.swift */; };
@@ -40,6 +42,8 @@
 		359C60B32A8BD16F00F930E0 /* TimerPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPanel.swift; sourceTree = "<group>"; };
 		359C60B52A8BEE6C00F930E0 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		359C60B82A8C744E00F930E0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		35C81B122A93BB5200FC9EA9 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		35C81B142A93D23300FC9EA9 /* ActiveNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNotifications.swift; sourceTree = "<group>"; };
 		35D929002A90F53C009CEACC /* SplashScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		35D929022A90F7FA009CEACC /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		35F1FA6E2A8E5749006A26DA /* AddEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				35D929002A90F53C009CEACC /* SplashScreen.swift */,
 				35F1FA6E2A8E5749006A26DA /* AddEvent.swift */,
 				359C60B12A8BC43A00F930E0 /* EditEvent.swift */,
+				35C81B122A93BB5200FC9EA9 /* AppInfo.swift */,
+				35C81B142A93D23300FC9EA9 /* ActiveNotifications.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 				359C60B02A8BC29700F930E0 /* EventList.swift in Sources */,
 				359C60B22A8BC43A00F930E0 /* EditEvent.swift in Sources */,
 				35D929032A90F7FA009CEACC /* Settings.swift in Sources */,
+				35C81B152A93D23300FC9EA9 /* ActiveNotifications.swift in Sources */,
 				359C60B62A8BEE6C00F930E0 /* Gradients.swift in Sources */,
 				35F1FA6F2A8E5749006A26DA /* AddEvent.swift in Sources */,
 				359C60B92A8C744E00F930E0 /* Helpers.swift in Sources */,
@@ -219,6 +226,7 @@
 				350FFB7A2A8A94AE009A5FDD /* EventivaApp.swift in Sources */,
 				359C60AE2A8BBEC300F930E0 /* EventCard.swift in Sources */,
 				35D929012A90F53C009CEACC /* SplashScreen.swift in Sources */,
+				35C81B132A93BB5200FC9EA9 /* AppInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

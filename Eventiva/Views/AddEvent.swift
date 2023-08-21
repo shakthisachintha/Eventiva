@@ -51,19 +51,26 @@ struct AddEvent: View {
                         TextField("Event Name", text: $name)
                     }
                     
-                    Section(header: Text("Date & Time")){
-                        DatePicker("Pick Date & Time",selection: $date, in: Date()...)
+                    Section(header: Text("Event Date & Time")){
+                        DatePicker("Datetime",selection: $date, in: Date()...)
                     }
                     Section(header: Text("Category")){
-                        TextField("Event Category", text: $category)
+                        Picker("Event Category", selection: $category) {
+                            Text("Party").tag("party")
+                            Text("Meeting").tag("meeting")
+                            Text("Health").tag("health")
+                            Text("Entertainment").tag("entertainment")
+                            Text("Family").tag("family")
+                            Text("Other").tag("other")
+                        }
                     }
                     Section(header: Text("Description")){
-                        TextField("Description of the event", text: $des    ).frame(width: 300,height: 100)
+                        TextField("Description of the event", text: $des, axis: .vertical) .lineLimit(3, reservesSpace: true)
                         
                     }
                     Section(header: Text("Notifications")){
-                        Toggle("Before 15 minites", isOn: $befor15min).disabled(!is15MinutesNotificationAvailable(for: date))
-                        Toggle("Before 1 day", isOn: $befor1day).disabled(!is1DayNotificationAvailable(for: date))
+                        Toggle("Before 15 Minutes", isOn: $befor15min).disabled(!is15MinutesNotificationAvailable(for: date))
+                        Toggle("Before 1 Day", isOn: $befor1day).disabled(!is1DayNotificationAvailable(for: date))
                     }
                 }
                 Spacer() // Add spacer to push the button to the bottom
@@ -78,7 +85,7 @@ struct AddEvent: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                         .padding()
-                })
+                }).disabled(name.isEmpty || date <= Date() || des.isEmpty)
                 
             }
             .navigationTitle(Text("Add Event"))

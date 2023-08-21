@@ -6,21 +6,30 @@
 //
 
 import SwiftUI
+import Combine
 
 struct EventList: View {
     @EnvironmentObject var modelData: DataModel;
     @State private var selectedFilters: Set<FilterOption> = []
     @State private var rawData: [Event] = []
+    @State private var cancellables: Set<AnyCancellable> = []
+    @State private var selectedCategories: Set<String> = []
+    
     
     enum FilterOption: String, CaseIterable, Hashable {
         case next24Hours = "24 Hours"
         case thisMonth = "This Month"
         case nextMonth = "Next Month"
+        case party = "party"
+        case meeting = "meeting"
+        case health = "health"
+        case entertainment = "entertainment"
+        case family = "family"
+        case other = "other"
     }
     
     var filteredEvents: [Event] {
-        var events = modelData.listFutureEvents()
-        
+        var events = rawData
         if !selectedFilters.isEmpty {
             events.removeAll()
             for filter in selectedFilters {
@@ -38,6 +47,10 @@ struct EventList: View {
                     let startOfNextMonth = Calendar.current.date(byAdding: DateComponents(month: 1), to: currentDate)!
                     let endOfNextMonth = Calendar.current.date(byAdding: DateComponents(month: 2, day: -1), to: startOfNextMonth)!
                     events.append(contentsOf: rawData.filter { $0.dateTime >= startOfNextMonth && $0.dateTime <= endOfNextMonth })
+                    
+                case .party, .meeting, .health, .entertainment, .family, .other:
+                    let category = filter.rawValue
+                    events.append(contentsOf: rawData.filter { $0.category == category })
                 }
             }
         }
@@ -61,31 +74,18 @@ struct EventList: View {
             let startOfNextMonth = Calendar.current.date(byAdding: DateComponents(month: 1), to: currentDate)!
             let endOfNextMonth = Calendar.current.date(byAdding: DateComponents(month: 2, day: -1), to: startOfNextMonth)!
             return rawData.filter { $0.dateTime >= startOfNextMonth && $0.dateTime <= endOfNextMonth }.count
+        case .party, .meeting, .health, .entertainment, .family, .other:
+            // Count events based on selected category
+            let category = option.rawValue
+            return rawData.filter { $0.category == category }.count
         }
     }
     
     var body: some View {
         NavigationStack {
             VStack {
-                HStack(alignment:.center) {
-                    NavigationLink(destination: Settings()) {
-                        Image(systemName: "line.3.horizontal.circle.fill")
-                            .font(.system(size: 30))
-                            .foregroundColor(.gray)
-                    }
-                    Spacer()
-                    Text("Your Events")
-                    Spacer()
-                    Button(action: {
-                        print("notifications clicked")
-                    }) {
-                        Image(systemName: "bell.circle.fill")
-                            .font(.system(size: 30))
-                            .foregroundColor(.gray)
-                    }
-                }.padding(.bottom, 10)
                 // Filter buttons
-                HStack {
+                ScrollView(.horizontal, showsIndicators: false){HStack {
                     ForEach(FilterOption.allCases, id: \.self) { option in
                         let isSelected = selectedFilters.contains(option)
                         let count = countForFilter(option: option)
@@ -98,7 +98,7 @@ struct EventList: View {
                             }
                         }) {
                             HStack {
-                                Text(option.rawValue).foregroundColor(isSelected ? Color.black : Color.white).font(.footnote).fontWeight(.bold)
+                                Text(option.rawValue.capitalized).foregroundColor(isSelected ? Color.black : Color.white).font(.footnote).fontWeight(.bold)
                                 
                                 Text("\(count)")
                                     .foregroundColor(isSelected ? Color.white : Color.black).font(.footnote)
@@ -109,32 +109,33 @@ struct EventList: View {
                                             .padding(2)
                                     )
                                 
-                                
                             }
                             .padding(.horizontal, 10)
                             .padding(.vertical, 4)
                             .background(isSelected ? Color.white : Color.gray)
                             .cornerRadius(5)
                         }
-                        
-                        if option != FilterOption.allCases.last { // Exclude spacer after the last button
-                            Spacer()
-                        }
                     }
-                }
+                }}
                 ScrollView {
-                    ForEach(filteredEvents) { event in
+                    ForEach(Array(filteredEvents.enumerated()), id: \.element.id) { index, event in
                         NavigationLink(destination: EditEvent(event: event)) {
-                            EventCard(event: event)
+                            EventCard(event: event, index: index)
                         }
                     }
                 }
             }.onAppear {
                 rawData = modelData.listFutureEvents()
+                // Listen for changes in the events array
+                modelData.objectWillChange
+                    .sink { _ in
+                        rawData = modelData.listFutureEvents()
+                    }
+                    .store(in: &cancellables)
             }
         }
     }
-        
+    
 }
 
 struct EventList_Previews: PreviewProvider {

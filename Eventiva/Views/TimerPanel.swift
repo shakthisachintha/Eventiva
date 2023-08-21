@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimerPanel: View {
     var event: Event
+    @EnvironmentObject var modelData: DataModel;
     
     @State private var currentTime = Date()
     @State private var timer: Timer?
@@ -59,12 +60,15 @@ struct TimerPanel: View {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             currentTime = Date()
             
-            if (selectedComponentTwo.unit == "seconds") {
-                selectedComponentTwo = TimeDuration(unit: "seconds", duration: secondsRemaining(from: event.dateTime, currentTime))
+            let times = event.getActiveTimeCoponents(current: Date())
+            if (times.count >= 2 ) {
+                selectedComponentOne = times[0]
+                selectedComponentTwo = times[1]
             }
-            
-            if (selectedComponentOne.unit == "minutes") {
-                selectedComponentOne = TimeDuration(unit: "minutes", duration: minutesRemaining(from: event.dateTime, currentTime))
+            if (times.count == 0) {
+                selectedComponentOne = TimeDuration(unit: "minutes", duration: 0)
+                selectedComponentTwo = TimeDuration(unit: "seconds", duration: 0)
+                modelData.refreshList()
             }
         }
     }
@@ -77,7 +81,7 @@ struct TimerPanel: View {
 
 
 struct TimerPanel_Previews: PreviewProvider {
-    static var events = DataModel().listFutureEvents()
+    static var events = DataModel().events
     
     static var previews: some View {
         TimerPanel(event: events[0])

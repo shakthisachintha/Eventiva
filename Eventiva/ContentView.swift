@@ -13,6 +13,23 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack{
+            HStack(alignment:.center) {
+                NavigationLink(destination: Settings()) {
+                    Image(systemName: "line.3.horizontal.circle.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.gray)
+                }
+                Spacer()
+                Text("Your Events")
+                Spacer()
+                NavigationLink(destination: ActiveNotifications()) {
+                    Image(systemName: "bell.circle.fill")
+                        .font(.system(size: 30))
+                        .foregroundColor(.gray)
+                }
+                
+           
+            }.padding(.bottom, 10)
             ZStack(alignment: .bottomTrailing) {
                 EventList()
                 

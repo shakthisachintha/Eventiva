@@ -43,24 +43,32 @@ struct EditEvent: View {
                         TextField("Event Name", text: $name)
                     }
                     
-                    Section(header: Text("Date & Time")) {
-                        DatePicker("Pick Date & Time", selection: $date, in: Date()...).onChange(of: date) { newDate in
+                    Section(header: Text("Event Date & Time")) {
+                        DatePicker("Datetime", selection: $date, in: Date()...).onChange(of: date) { newDate in
                             befor15min = is15MinutesNotificationAvailable(for: newDate) && event.notifications.contains(15)
                             befor1day = is1DayNotificationAvailable(for: newDate) && event.notifications.contains(24 * 60)
                         }
                     }
                     Section(header: Text("Category")) {
-                        TextField("Event Category", text: $category)
+                        Picker("Event Category", selection: $category) {
+                            Text("Party").tag("party")
+                            Text("Meeting").tag("meeting")
+                            Text("Health").tag("health")
+                            Text("Entertainment").tag("entertainment")
+                            Text("Family").tag("family")
+                            Text("Other").tag("other")
+                        }
                     }
-                    Section(header: Text("Description")) {
-                        TextField("Description of the event", text: $des).frame(width: 300, height: 100)
+                    Section(header: Text("Description")){
+                        TextField("Description of the event", text: $des, axis: .vertical) .lineLimit(3, reservesSpace: true)
+                        
                     }
                     Section(header: Text("Notifications")) {
-                        Toggle("Before 15 minutes", isOn: $befor15min).disabled(!is15MinutesNotificationAvailable(for: date))
+                        Toggle("Before 15 Minutes", isOn: $befor15min).disabled(!is15MinutesNotificationAvailable(for: date))
                             .onAppear {
                                 befor15min = event.notifications.contains(15)
                             }
-                        Toggle("Before 1 day", isOn: $befor1day).disabled(!is1DayNotificationAvailable(for: date))
+                        Toggle("Before 1 Day", isOn: $befor1day).disabled(!event.notifications.contains(24*60) && !is1DayNotificationAvailable(for: date))
                             .onAppear {
                                 befor1day = event.notifications.contains(24 * 60)
                             }
@@ -109,12 +117,13 @@ struct EditEvent: View {
             name = event.name
             des = event.description
             date = event.dateTime
+            category = event.category
         }
     }
 }
 
 struct EditEvent_Previews: PreviewProvider {
-    static var events = DataModel().listFutureEvents()
+    static var events = DataModel().events
     
     static var previews: some View {
         EditEvent(event: events[0]).environmentObject(DataModel())

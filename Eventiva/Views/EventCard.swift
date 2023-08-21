@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventCard: View {
     var event: Event
+    var index: Int? // Optional index parameter
     
     var body: some View {
         VStack {
@@ -33,14 +34,14 @@ struct EventCard: View {
                 }
             }.padding()
         }.background(
-            getGradient(1)
+            getGradient(index ?? 1)
         ).cornerRadius(5)
     }
     
 }
 
 struct EventCard_Previews: PreviewProvider {
-    static var events = DataModel().listFutureEvents()
+    static var events = DataModel().events
     
     static var previews: some View {
         EventCard(event: events[3])

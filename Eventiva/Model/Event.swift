@@ -12,6 +12,15 @@ struct TimeDuration {
     var duration: Int
 }
 
+enum Category: String, CaseIterable {
+    case party = "party"
+    case meeting = "meeting"
+    case health = "health"
+    case entertainment = "entertainment"
+    case family = "family"
+    case other = "other"
+}
+
 struct Event: Hashable, Codable, Identifiable {
     var id = UUID()
     var name: String
@@ -51,27 +60,52 @@ struct Event: Hashable, Codable, Identifiable {
         var timeDurations: [TimeDuration] = []
         var selectedTimeComponents: [TimeDuration] = []
         
-        let yearsDuration = TimeDuration(unit: "years", duration: yearsRemaining(from: dateTime, currentTime))
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: currentTime, to: dateTime)
+        
+        let years = components.year ?? 0
+        let months = components.month ?? 0
+        let days = components.day ?? 0
+        let hours = components.hour ?? 0
+        let minutes = components.minute ?? 0
+        let seconds = components.second ?? 0
+        
+        let yearsDuration = TimeDuration(unit: "years", duration: years)
         timeDurations.append(yearsDuration)
         
-        let monthsDuration = TimeDuration(unit: "months", duration: monthsRemaining(from: dateTime, currentTime))
+        let monthsDuration = TimeDuration(unit: "months", duration: months)
         timeDurations.append(monthsDuration)
         
-        let daysDuration = TimeDuration(unit: "days", duration: daysRemaining(from: dateTime, currentTime))
+        let daysDuration = TimeDuration(unit: "days", duration: days)
         timeDurations.append(daysDuration)
         
-        let hoursDuration = TimeDuration(unit: "hours", duration: hoursRemaining(from: dateTime, currentTime))
+        let hoursDuration = TimeDuration(unit: "hours", duration: hours)
         timeDurations.append(hoursDuration)
         
-        let minutesDuration = TimeDuration(unit: "minutes", duration: minutesRemaining(from: dateTime, currentTime))
+        let minutesDuration = TimeDuration(unit: "minutes", duration: minutes)
         timeDurations.append(minutesDuration)
         
-        let secondsDuration = TimeDuration(unit: "seconds", duration: secondsRemaining(from: dateTime, currentTime))
+        let secondsDuration = TimeDuration(unit: "seconds", duration: seconds)
         timeDurations.append(secondsDuration)
         
         for duration in timeDurations {
             if duration.duration > 0 && selectedTimeComponents.count < 2 {
                 selectedTimeComponents.append(duration)
+            }
+        }
+        if (selectedTimeComponents.count == 1) {
+            let currentElemnet = selectedTimeComponents[0]
+            var prevElement: TimeDuration = TimeDuration(unit: "hours", duration: hours)
+            
+            if (currentElemnet.unit == "minutes") {
+                prevElement = TimeDuration(unit: "seconds", duration: 0)
+                selectedTimeComponents.append(prevElement)
+            }
+            
+            if (currentElemnet.unit == "seconds") {
+                prevElement = TimeDuration(unit: "minutes", duration: 0)
+                selectedTimeComponents.insert(prevElement, at: 0)
             }
         }
         

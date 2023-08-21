@@ -9,12 +9,18 @@ import SwiftUI
 
 struct Settings: View {
     
+    @EnvironmentObject var dataModel: DataModel
     @AppStorage("isDarkModeEnabled") private var darkModeEnabled = false
     @AppStorage("isSystemThemeEnabled") private var systemThemeEnabled = false
     @AppStorage("notificationEnabled") private var notificationEnabled = false
     
     
     @State private var showAlert = false
+    
+    func clearAppData() {
+        dataModel.clearAllEvents()
+    }
+
     
     var body: some View {
         NavigationView {
@@ -39,17 +45,23 @@ struct Settings: View {
                         Text("Notifications")
                     })
                     .onChange(of: notificationEnabled, perform: { _ in
-                        print(notificationEnabled)
+                        if (!notificationEnabled) {
+                            dataModel.removeAllScheduledNotifications();
+                        } else {
+                            dataModel.rescheduleAllNotifications();
+                        }
                     })
                     
+                    NavigationLink(destination: AppInfo()) {
+                        Text("App Info")
+                    }
                     
                     Text("Clear App Data")
                         .foregroundColor(.red)
                         .onTapGesture {
                             showAlert = true
                         }
-                    
-                    Text("App Info")
+                   
                     
                 }.alert(isPresented: $showAlert, content: {
                     Alert (title: Text("Confirmation"), message: Text("Are You sure ?"), primaryButton: .default(Text("Yes")) {
@@ -63,9 +75,6 @@ struct Settings: View {
     }
 }
 
-func clearAppData() {
-    print("clear app data")
-}
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
