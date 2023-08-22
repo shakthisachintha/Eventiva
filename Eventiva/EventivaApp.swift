@@ -18,6 +18,10 @@ struct EventivaApp: App {
     
     @StateObject private var modelData = DataModel()
     
+    @State private var opacity = 0.5
+    @State private var showSplash = true
+   
+    
     func requestNotificationPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
@@ -38,11 +42,39 @@ struct EventivaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(modelData).preferredColorScheme(getTheme()).onAppear {
+            ZStack{
+                if (showSplash) {
+                    SplashScreenView()
+                        .opacity(opacity)
+                        .onAppear {
+                            withAnimation(.easeIn(duration:1.2)) {
+                                self.opacity = 1.0
+                            }
+                        }
+                        .transition(.opacity)
+                        .onDisappear{
+                            withAnimation(.easeOut(duration: 1.2)){
+                                self.opacity = 0.5
+                            }
+                        }
+                }
+                else {
+                    ContentView()
+                        .environmentObject(modelData)
+                        .preferredColorScheme(getTheme() ?? .light)
+                }
+            }.onAppear{
                 requestNotificationPermission()
+                DispatchQueue.main
+                    .asyncAfter(deadline: .now() + 2) {
+                        withAnimation {
+                            self.showSplash = false
+                        }
+                    }
             }
         }
     }
+    
 }
 
 
@@ -54,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         return true
     }
-
+    
     // Handle notifications received while the app is in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Display an alert or update UI to notify the user of the incoming notification
